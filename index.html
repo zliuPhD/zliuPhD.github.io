@@ -3,296 +3,582 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Zishun Liu - Personal Academic Page</title>
+    <meta name="description" content="Academic homepage of Zishun Liu, a Ph.D. student in Machine Learning at Georgia Tech.">
+    <title>Zishun Liu - Academic Homepage</title>
     <style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        color: #333;
-        scroll-behavior: smooth;
-    }
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    header {
-        background: #f4f4f4;
-        padding: 2rem 0;
-    }
+        :root {
+            --ink: #20252b;
+            --muted: #616b75;
+            --navy: #17324d;
+            --navy-soft: #274f70;
+            --rule: #d7dde3;
+            --paper: #ffffff;
+            --panel: #f5f7f9;
+            --panel-strong: #eef2f5;
+            --max-width: 980px;
+        }
 
-       header .container {
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        flex-wrap: wrap; 
-    }
-    .profile-photo {
-        width: 240px; 
-        height: auto; 
-        margin-left: 0px; /* 在照片左侧添加间距 */
-        flex-shrink: 0; /* 防止照片在空间不足时缩小 */
-    }
-    .profile-text {
-        text-align: center; /* 文字居中 */
-        flex-grow: 1; /* 允许文字区域占据剩余空间 */
-        min-width: 280px; /* 确保文字区域在小屏幕下有最小宽度 */
-    }
-    /* --- 修改区域结束 --- */
+        * {
+            box-sizing: border-box;
+        }
 
-    header h1 {
-        margin: 0 0 5px;
-        font-size: 2.5em;
-    }
-    header p {
-        margin: 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-    nav {
-        background: #333;
-        color: #fff;
-        padding: 10px 0;
-        text-align: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-    nav a {
-        color: #fff;
-        text-decoration: none;
-        padding: 10px 20px;
-        font-size: 1.1em;
-    }
-    nav a:hover {
-        background: #555;
-    }
-    section {
-        padding: 40px 20px;
-        border-bottom: 1px solid #ddd;
-    }
-    section:last-of-type {
-        border-bottom: none;
-    }
-    h2 {
-        font-size: 2em;
-        color: #333;
-        border-bottom: 2px solid #333;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-    }
-    .publication-item {
-        margin-bottom: 15px;
-    }
-    .publication-item a {
-        text-decoration: none;
-        color: #0066cc;
-        font-weight: bold;
-    }
-    .publication-item a:hover {
-        text-decoration: underline;
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        background: #333;
-        color: #fff;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    /* 响应式调整：当屏幕宽度较小时，照片会换行到文字下方并居中 */
-    @media (max-width: 600px) {
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.72;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: min(var(--max-width), calc(100% - 44px));
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        a {
+            color: var(--navy-soft);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--navy);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--rule);
+            box-shadow: 0 1px 8px rgba(23, 50, 77, 0.045);
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 24px;
+            min-height: 52px;
+        }
+
+        nav a {
+            position: relative;
+            padding: 16px 0 14px;
+            color: #38434d;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 9px;
+            height: 2px;
+            background: var(--navy);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 160ms ease;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        nav a:hover::after,
+        nav a:focus::after {
+            transform: scaleX(1);
+        }
+
+        header {
+            background:
+                linear-gradient(90deg, rgba(23, 50, 77, 0.035) 1px, transparent 1px),
+                linear-gradient(rgba(23, 50, 77, 0.035) 1px, transparent 1px),
+                var(--panel);
+            background-size: 32px 32px;
+            border-bottom: 1px solid var(--rule);
+        }
+
         header .container {
-            flex-direction: column; /* 垂直堆叠 */
-            justify-content: center; /* 居中对齐 */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 48px;
+            min-height: 300px;
+            padding: 42px 0;
         }
-        .profile-photo {
-            margin: 20px 0 0 0; /* 调整上下间距 */
-            order: 2; /* 确保照片在文字下方 */
-        }
-        .profile-text {
-            order: 1; /* 确保文字在照片上方 */
-            text-align: center; /* 文字居中 */
-        }
-    }
 
-</style>
+        .profile-photo {
+            width: 220px;
+            max-width: 100%;
+            height: auto;
+            flex: 0 0 auto;
+            border: 1px solid #cfd6dc;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(20, 39, 58, 0.09);
+        }
+
+        .profile-text {
+            flex: 1 1 360px;
+            text-align: left;
+        }
+
+        .profile-text a {
+            color: var(--navy-soft);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(39, 79, 112, 0.35);
+        }
+
+        .profile-text a:hover {
+            border-bottom-color: var(--navy);
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            color: #15283a;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.65rem, 6vw, 4.25rem);
+            font-weight: 600;
+            line-height: 1.03;
+            letter-spacing: -0.035em;
+        }
+
+        header p {
+            margin: 0;
+            color: #4e5963;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.17rem;
+        }
+
+        main.container {
+            padding-top: 16px;
+            padding-bottom: 24px;
+        }
+
+        section {
+            padding: 42px 0 44px;
+            border-bottom: 1px solid var(--rule);
+            scroll-margin-top: 68px;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            margin: 0 0 22px;
+            padding: 0 0 10px;
+            color: var(--navy);
+            border-bottom: 1px solid #bfc8d0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.72rem;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 52px;
+            height: 3px;
+            margin-top: 10px;
+            margin-bottom: -13px;
+            background: var(--navy);
+        }
+
+        h3 {
+            margin: 30px 0 14px;
+            color: #33424f;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.08rem;
+            font-weight: 600;
+            letter-spacing: 0.015em;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 14px;
+        }
+
+        ul {
+            margin: 14px 0 0;
+            padding-left: 1.35rem;
+        }
+
+        li {
+            margin-bottom: 9px;
+            padding-left: 0.2rem;
+        }
+
+        li::marker {
+            color: #6c7d8d;
+        }
+
+        strong {
+            color: #1f3447;
+            font-weight: 650;
+        }
+
+        .publication-item {
+            margin: 0;
+            padding: 10px 0 12px 16px;
+            border-left: 2px solid #d5dde4;
+        }
+
+        .publication-item + .publication-item {
+            margin-top: 4px;
+        }
+
+        .publication-item:hover {
+            border-left-color: #6d879f;
+        }
+
+        .publication-item p {
+            margin: 0;
+        }
+
+        .publication-item em {
+            color: #47545f;
+        }
+
+        .publication-item a {
+            display: inline-block;
+            margin-left: 5px;
+            color: var(--navy-soft);
+            font-size: 0.88rem;
+            font-weight: 650;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .publication-item a:hover {
+            text-decoration: underline;
+        }
+
+        .note {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 0.91rem;
+        }
+
+        #research li {
+            margin-bottom: 12px;
+        }
+
+        #news ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #news li {
+            position: relative;
+            margin: 0;
+            padding: 8px 0 8px 104px;
+            border-bottom: 1px dotted #d5dbe0;
+        }
+
+        #news li:last-child {
+            border-bottom: 0;
+        }
+
+        #news li > strong:first-child {
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: #526476;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.87rem;
+            font-weight: 600;
+        }
+
+        #contact p {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.94rem;
+        }
+
+        footer {
+            background: #172838;
+            color: #dce3e8;
+            border-top: 1px solid #0e1f2e;
+            text-align: center;
+            padding: 22px;
+            font-size: 0.83rem;
+            letter-spacing: 0.015em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                width: min(100% - 32px, var(--max-width));
+            }
+
+            nav .container {
+                justify-content: flex-start;
+                gap: 18px;
+                min-height: 48px;
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+
+            nav .container::-webkit-scrollbar {
+                display: none;
+            }
+
+            nav a {
+                flex: 0 0 auto;
+                padding: 14px 0 12px;
+                font-size: 0.86rem;
+            }
+
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+                min-height: 0;
+                padding: 34px 0 36px;
+            }
+
+            .profile-photo {
+                width: 180px;
+            }
+
+            .profile-text {
+                flex-basis: auto;
+            }
+
+            header h1 {
+                font-size: clamp(2.5rem, 14vw, 3.55rem);
+            }
+
+            header p {
+                font-size: 1.05rem;
+            }
+
+            section {
+                padding: 34px 0 36px;
+            }
+
+            h2 {
+                font-size: 1.55rem;
+            }
+
+            #news li {
+                padding: 10px 0;
+            }
+
+            #news li > strong:first-child {
+                position: static;
+                display: inline-block;
+                min-width: 82px;
+                margin-right: 3px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            nav a::after {
+                transition: none;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <nav>
+    <nav aria-label="Primary navigation">
         <div class="container">
-            <a href="#home">Home</a>
+            <a href="#about-me">About</a>
             <a href="#research">Research</a>
+            <a href="#applications">Applications</a>
             <a href="#publications">Publications</a>
             <a href="#news">News</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
 
-<header id="home">
-    <div class="container">
-
-	<img src="ZishunPage.jpeg" alt="Zishun" class="profile-photo">
-        <div class="profile-text">
-            <h1>Zishun Liu</h1>
-            <p><a href="https://ml.gatech.edu" style="color: #333;">Machine Learning Center</a>, Georgia Tech</p>
+    <header id="home">
+        <div class="container">
+            <img src="ZishunPage.jpeg" alt="Portrait of Zishun Liu" class="profile-photo">
+            <div class="profile-text">
+                <h1>Zishun Liu</h1>
+                <p><a href="https://ml.gatech.edu">Machine Learning Center</a>, Georgia Tech</p>
+            </div>
         </div>
-        
-    </div>
-</header>
+    </header>
 
-    <div class="container">
+    <main class="container">
         <section id="about-me">
             <h2>About Me</h2>
             <p>
-                Welcome to my academic homepage. I am a 4th-year PhD student in Machine Learning at Georgia Institute of Technology, under the supervision of <a href="https://yongxin.ae.gatech.edu" style="color: #333; ">Prof. Yongxin Chen</a>. 
-                 Previously, I received my bachelor degree in Engineering from Shanghai Jiao Tong University, Department of Automation. You can find more about my work on this page.
-<p>
-		Aside from the research, I'm a fan of  <a href="https://en.wikipedia.org/wiki/ACG_(subculture)" style="color: #333; ">ACGN culture.</a>  For outdoor activities, I like traveling and swimming. 
+                Welcome to my academic homepage. I am a fifth-year Ph.D. student in Machine Learning at the Georgia Institute of Technology, advised by <a href="https://yongxin.ae.gatech.edu">Prof. Yongxin Chen</a>.
+                Currently, I am also a research intern at <a href="https://www.merl.com">Mitsubishi Electric Research Laboratories (MERL)</a>, under the supervision of <a href="https://www.merl.com/people/yebinwang">Dr. Yebin Wang</a> and <a href="https://www.zhaolinren.com">Dr. Zhaolin Ren</a>.
+                Previously, I received my bachelor's degree in Engineering from the Department of Automation at Shanghai Jiao Tong University in 2021. You can learn more about my work on this page.
+            </p>
+            <p>
+                Aside from research, I am a fan of <a href="https://en.wikipedia.org/wiki/ACG_(subculture)">ACGN culture</a>. I also enjoy traveling and swimming.
             </p>
         </section>
 
         <section id="research">
             <h2>Research</h2>
             <p>
-               My research interests encompass the fields of control theory, stochastic systems, probability, optimization, and machine learning. Currently, my research is focused on but not limited to the safety, reachability and control syhthesis of stochastic control systems, as well as their applications.
+                My research interests span robotics, machine learning, control theory, and stochastic processes. My current research focuses on, but is not limited to, the following topics:
             </p>
             <ul>
-				<li> <strong>Uncertainty-Aware Safe Planning and Control for Dynamical Systems.</strong> Design scalable and computationally tractable planning and control methods that provide formal and high-probability (e.g., 99.99%) safety guarantees for dynamical systems under uncertainties.</li>
-                <li><strong>Application of Safe Control in Robotics.</strong> Develop scalable, safety-assured, and real-time implementable control policies for real-world robots. </li>
-				<li> <strong>Advanced control theory for Stochastic Systems.</strong> Utilize advanced techniques to facilitate new theories for the reachability, stability and safety of stochastic systems. </li>
-				<li><strong>Analysis of Stochastic Differential Equations (SDE).</strong> Leverage cutting-edge theories in applied mathematics to analyze the stochastic systems modelled by SDE. </li>
+                <li><strong>Risk-aware planning for robots and vehicles.</strong> Develop risk-aware mechanisms for large behavior models, and build scalable safety-assured planning methods for robots and vehicles.</li>
+                <li><strong>Safe control for dynamical systems.</strong> For safety-critical and accuracy-critical dynamical systems, develop uncertainty-aware planning and control methods that can provide formal high-probability safety guarantees.</li>
+                <li><strong>Efficiency and real-world effectiveness of control systems.</strong> Improve the computational efficiency of learning-based and model-based control methods, and integrate them with hardware-level constraints in real-world settings.</li>
+                <li><strong>Advanced control theory for stochastic systems.</strong> Use advanced techniques to analyze reachability, stability, and safety of stochastic systems.</li>
+                <li><strong>Theoretical analysis of diffusion models.</strong> Analyze the distributional properties, reachability, and sample efficiency of diffusion models.</li>
             </ul>
+        </section>
+
+        <section id="applications">
+            <h2>Application Projects</h2>
+
+            <div class="publication-item">
+                <p>
+                    An Efficient and Lossless Optimal Power Allocation Scheme for Hybrid Electric Vehicles<sup>*</sup><br>
+                    <strong>Z. Liu</strong> et al.
+                </p>
+            </div>
+
+            <div class="publication-item">
+                <p>
+                    An Efficient Learning-Based Pipeline for Motor-Controller System Codesign<sup>*</sup><br>
+                    <strong>Z. Liu</strong> et al.
+                </p>
+            </div>
+
+            <p class="note"><sup>*</sup> These projects were conducted during my research internship at MERL.</p>
         </section>
 
         <section id="publications">
             <h2>Selected Publications</h2>
-            <p>A full list of my publications is available on my <a href="https://scholar.google.com/citations?user=ZmsfbNUAAAAJ&hl=en">Google Scholar</a> profile.</p>
-           
-<p> <span style="font-weight: bold; font-size: 1.2em;"> Preprints </span></p>
+            <p>A full list of my publications is available on my <a href="https://scholar.google.com/citations?user=ZmsfbNUAAAAJ&amp;hl=en">Google Scholar</a> profile.</p>
 
-			<div class="publication-item">
-                <p>
-                Feedback Motion Planning for Stochastic Nonlinear Systems with Signal Temporal Logic Specifications
-<br>
-<strong>Z. Liu<sup>*</sup></strong>, L. Ma <sup>*</sup>, G. Chou and Y. Chen, <em>arxiv: 2605.02361, 2026.</em>
-<a href="https://arxiv.org/pdf/2605.02361">[PDF]</a>                		</p>
-            </div>
-			
+            <h3>Preprints</h3>
+
             <div class="publication-item">
                 <p>
-                A New Proof of Sub-Gaussian Norm Concentration Inequality
-<br>
-<strong>Z. Liu</strong>, S. Power and Y. Chen, <em>arxiv: 2503.14347, 2025.</em>
-<a href="https://arxiv.org/pdf/2503.14347">[PDF]</a>                		</p>
+                    Feedback Motion Planning for Stochastic Nonlinear Systems with Signal Temporal Logic Specifications<br>
+                    <strong>Z. Liu<sup>*</sup></strong>, L. Ma<sup>*</sup>, G. Chou, and Y. Chen, <em>arXiv:2605.02361, 2026.</em>
+                    <a href="https://arxiv.org/pdf/2605.02361">[PDF]</a>
+                </p>
             </div>
 
-
-<p> <span style="font-weight: bold; font-size: 1.2em;"> Journals </span></p>
-
-<div class="publication-item">
+            <div class="publication-item">
                 <p>
-                Safety Verification of Nonlinear Stochastic Systems via Probabilistic Tube
-<br>
-<strong>Z. Liu</strong>, S. Jafarpour and Y. Chen, <em>IEEE Transactions on Automatic Control, 2026.</em>
-<a href="https://arxiv.org/pdf/2503.03328">[PDF]</a>                		</p>
+                    A New Proof of Sub-Gaussian Norm Concentration Inequality<br>
+                    <strong>Z. Liu</strong>, S. Power, and Y. Chen, <em>arXiv:2503.14347, 2025.</em>
+                    <a href="https://arxiv.org/pdf/2503.14347">[PDF]</a>
+                </p>
             </div>
 
-<div class="publication-item">
+            <h3>Journals</h3>
+
+            <div class="publication-item">
                 <p>
-                Probabilistic Reachability of Discrete-Time Nonlinear Stochastic Systems
-<br>
-<strong>Z. Liu</strong>, S. Jafarpour and Y. Chen, <em>Automatica, 2026.</em>
-<a href="https://arxiv.org/pdf/2409.09334">[PDF]</a>                		</p>
+                    Safety Verification of Nonlinear Stochastic Systems via Probabilistic Tube<br>
+                    <strong>Z. Liu</strong>, S. Jafarpour, and Y. Chen, <em>IEEE Transactions on Automatic Control, 2026.</em>
+                    <a href="https://arxiv.org/pdf/2503.03328">[PDF]</a>
+                </p>
             </div>
 
-
-<div class="publication-item">
+            <div class="publication-item">
                 <p>
-                Probabilistic Reachability Analysis of Stochastic Control Systems
-<br>
-<strong>Z. Liu<sup>*</sup></strong>, S. Jafarpour <sup>*</sup> and Y. Chen, <em> IEEE Transactions on Automatic Control, 2025.</em>
-<a href="https://ieeexplore.ieee.org/abstract/document/10985791">[PDF]</a>                		</p>
+                    Probabilistic Reachability of Discrete-Time Nonlinear Stochastic Systems<br>
+                    <strong>Z. Liu</strong>, S. Jafarpour, and Y. Chen, <em>Automatica, 2026.</em>
+                    <a href="https://arxiv.org/pdf/2409.09334">[PDF]</a>
+                </p>
             </div>
 
-
-<div class="publication-item">
+            <div class="publication-item">
                 <p>
-                Safety Verification of Stochastic Systems under Signal Temporal Logic Specifications
-<br>
-L. Ma, <strong>Z. Liu</strong>, H. Yu and Y. Chen, <em>IEEE Control Systems Letters, 2025.</em>
-<a href="https://ieeexplore.ieee.org/abstract/document/10988840">[PDF]</a>                		</p>
+                    Probabilistic Reachability Analysis of Stochastic Control Systems<br>
+                    <strong>Z. Liu<sup>*</sup></strong>, S. Jafarpour<sup>*</sup>, and Y. Chen, <em>IEEE Transactions on Automatic Control, 2025.</em>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10985791">[IEEE]</a>
+                </p>
             </div>
 
-
-<p> <span style="font-weight: bold; font-size: 1.2em;"> Conferences </span></p>
-
-<div class="publication-item">
+            <div class="publication-item">
                 <p>
-                Model Predictive Control with High-Probability Safety Guarantee for Nonlinear Stochastic Systems
-<br>
-<strong>Z. Liu</strong>, L. Ma and Y. Chen, <em> Accepted by 2026 American Control Conference, 2026.</em>
-<a href="https://arxiv.org/pdf/2509.11584">[PDF]</a>                		</p>
+                    Safety Verification of Stochastic Systems under Signal Temporal Logic Specifications<br>
+                    L. Ma, <strong>Z. Liu</strong>, H. Yu, and Y. Chen, <em>IEEE Control Systems Letters, 2025.</em>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10988840">[IEEE]</a>
+                </p>
             </div>
-			
-<div class="publication-item">
+
+            <h3>Conferences</h3>
+
+            <div class="publication-item">
                 <p>
-                Trajectory Optimization of Stochastic Systems under Chance Constraints via Set Erosion
-<br>
-<strong>Z. Liu<sup>*</sup></strong>, L. Ma <sup>*</sup> and Y. Chen, <em> 2025 IEEE Conference on Decision and Control, 2025.</em>
-<a href="https://arxiv.org/abs/2504.04705">[PDF]</a>                		</p>
+                    Model Predictive Control with High-Probability Safety Guarantee for Nonlinear Stochastic Systems<br>
+                    <strong>Z. Liu</strong>, L. Ma, and Y. Chen, <em>2026 American Control Conference, 2026.</em>
+                    <a href="https://arxiv.org/pdf/2509.11584">[PDF]</a>
+                </p>
             </div>
 
-<div class="publication-item">
+            <div class="publication-item">
                 <p>
-                Safety Verification of Stochastic Systems: A Set-Erosion Approach
-<br>
-<strong>Z. Liu</strong>, S. Jafarpour and Y. Chen, <em>2025 American Control Conference, 2025.</em>
-<a href="https://ieeexplore.ieee.org/abstract/document/10801247">[PDF]</a>                		</p>
+                    Trajectory Optimization of Stochastic Systems under Chance Constraints via Set Erosion<br>
+                    <strong>Z. Liu<sup>*</sup></strong>, L. Ma<sup>*</sup>, and Y. Chen, <em>2025 IEEE Conference on Decision and Control, 2025.</em>
+                    <a href="https://arxiv.org/abs/2504.04705">[arXiv]</a>
+                </p>
             </div>
 
-<p> *: The contributions of the authors are equal. </p>
+            <div class="publication-item">
+                <p>
+                    Safety Verification of Stochastic Systems: A Set-Erosion Approach<br>
+                    <strong>Z. Liu</strong>, S. Jafarpour, and Y. Chen, <em>2025 American Control Conference, 2025.</em>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10801247">[IEEE]</a>
+                </p>
+            </div>
 
-
-
-
-            
-            </section>
+            <p class="note"><sup>*</sup> These authors contributed equally.</p>
+        </section>
 
         <section id="news">
             <h2>News</h2>
             <ul>
-        <li><strong>2026.05</strong>: I started a new internship in <a href="https://www.merl.com" style="color: #333; "> Mitsubishi Electric Research Laboratories (MERL)</a>. Sincerest appreciation to <a href="https://www.merl.com/people/yebinwang" style="color: #333; "> Dr. Yebin Wang</a> and <a href="https://www.zhaolinren.com" style="color: #333; "> Dr. Zhaolin Ren</a> for supervising me! </li>		
-				
-		<li><strong>2026.03</strong>: I delivered a talk titled "Fluctuation and Safety of Stochastic Control Systems" in Harvard University. Sincerest appreciation to <a href="https://huyangsh.github.io" style="color: #333; "> Yang Hu</a> and <a href="https://nali.seas.harvard.edu" style="color: #333; "> Prof. Na Li</a> for holding the seminar! </li>
-				
-		<li><strong>2025.12</strong>: <a href="https://yongxin.ae.gatech.edu" style="color: #333; ">Prof. Yongxin Chen and I</a> delivered a talk titled "Safety Assurance of Stochastic Systems" in CDC 2025.</li>
-		
-		<li><strong>2025.07</strong>: Our paper "Safety Verification of Nonlinear Stochastic Systems via Probabilistic Tube" was accepted by IEEE Transactions on Automatic Control. Sincerest appreciation to my collaborators for all your efforts!</li>
-
-		<li><strong>2025.07</strong>: <a href="https://yongxin.ae.gatech.edu" style="color: #333; ">Prof. Yongxin Chen and I</a> delivered a talk titled "Safety Assurance of Stochastic Systems" in ACC 2025.</li>
-                
-		<li><strong>2025.04</strong>: Our paper "Probabilistic Reachability Analysis of Stochastic Control Systems" was accepted by IEEE Transactions on Automatic Control. Sincerest appreciation to my collaborators for all your efforts! </li>
+ <li><strong>2026.07</strong> I gave a talk titled "Safety Verification and Control for Nonlinear Stochastic Systems" at MIT. Many thanks to <a href="https://ericyangyu.github.io/">Eric Yu</a> and <a href="https://chuchu.mit.edu/">Prof. Chuchu Fan</a> for hosting the seminar.</li>                
+<li><strong>2026.05</strong> I started a new research internship at <a href="https://www.merl.com">Mitsubishi Electric Research Laboratories (MERL)</a>. Sincerest appreciation to my excellent supervisors.</li>
+                <li><strong>2026.03</strong> I gave a talk titled "Fluctuation and Safety of Stochastic Control Systems" at Harvard University. Many thanks to <a href="https://huyangsh.github.io">Yang Hu</a> and <a href="https://nali.seas.harvard.edu">Prof. Na Li</a> for hosting the seminar.</li>
+                <li><strong>2025.12</strong> <a href="https://yongxin.ae.gatech.edu">Prof. Yongxin Chen</a> and I gave a talk titled "Safety Assurance of Stochastic Systems" at CDC 2025.</li>
+                <li><strong>2025.07</strong> Our paper "Safety Verification of Nonlinear Stochastic Systems via Probabilistic Tube" was accepted for publication in <em>IEEE Transactions on Automatic Control</em>. Many thanks to my collaborators for their efforts and contributions.</li>
+                <li><strong>2025.07</strong> <a href="https://yongxin.ae.gatech.edu">Prof. Yongxin Chen</a> and I gave a talk titled "Safety Assurance of Stochastic Systems" at ACC 2025.</li>
+                <li><strong>2025.04</strong> Our paper "Probabilistic Reachability Analysis of Stochastic Control Systems" was accepted for publication in <em>IEEE Transactions on Automatic Control</em>. Many thanks to my collaborators for their efforts and contributions.</li>
             </ul>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-                       <p>
-                <strong>Email:</strong> [zliu910] [at] [gatech] [dot] [edu]
-            </p>
-                 </section>
-    </div>
+            <p><strong>Email:</strong> zliu910 [at] gatech [dot] edu</p>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; Zishun Liu. Last updated: June 2026.</p>
+        <p>&copy; Zishun Liu. Last updated: August 2026.</p>
     </footer>
-
 </body>
-
 </html>
-
-
-
